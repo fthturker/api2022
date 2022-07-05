@@ -63,7 +63,7 @@ public class Get01 {
 
         // 'Header' nasil yazdirilir
 
-        System.out.println("Headers:\n" + response.headers());
+        System.out.println("Headers:\n" + response.headers()); // tamamini verir
 
         System.out.println(response.header("Connection"));
         System.out.println(response.header("User-Agent"));
