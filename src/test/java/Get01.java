@@ -1,7 +1,7 @@
 import io.restassured.response.Response;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.*; // hepsi anlamına gelen * koyduk
 
 public class Get01 {
 
@@ -19,36 +19,35 @@ public class Get01 {
                     t) And : Coklu islemler icin kullanilir
 
             c) Test kodunun yazimi
-
-                i)   Set the URL
-                İİ)  set the Expected data(POT-PUT-PATCH)
-                iii) Type code to send request
-                iv)  Do Assertion
-     */
+                i)   Set the URL (url i ilk once kurmamiz lazim)
+                İİ)  set the Expected data (POT-PUT-PATCH) (beklenen data'nin olusturalmasi)
+                iii) Type code to send request (talep gondermek icin kod yazacagiz)
+                iv)  Do Assertion (dogrulama yapacagiz bekledigimiz ile gerceklesen datayi)
+    */
     /*
     Given
          https://restful-booker.herokuapp.com/booking/555
     When
          User sends a GET Request to the url
     Then
-         HTTP Status Code should be 200
+         HTTP Status Code should be 200 --> status kodunun 200 olmasini istiyoruz
     And
-         Content Type should be JSON
+         Content Type should be JSON --> icerik tipinin JSON olup olmadigini kontrol edecegiz
     And
-         Status Line should be HTTP/1.1 200 OK
+         Status Line should be HTTP/1.1 200 OK -->
      */
 
     @Test
     public void get01() {
         // i)   Set the URL
-        String url = "https://restful-booker.herokuapp.com/booking/55";
+        String url = "https://restful-booker.herokuapp.com/booking/55"; //String konteynir acıp ismini url yaziyoruz
 
-        // İİ)  set the Expected data(POT-PUT-PATCH)
+        // İİ)  set the Expected data(POT-PUT-PATCH) -->get oldugu icin bu adimi atliyoruz
 
         // iii) Type code to send request
         Response response = given().when().get(url);
 
-        //response.prettyPrint();
+        response.prettyPrint();
 
         // iv)  Do Assertion
         response.then().assertThat().statusCode(200).contentType("application/json").statusLine("HTTP/1.1 200 OK");
@@ -59,7 +58,7 @@ public class Get01 {
         // 'contentType' nasil yazdirilir
         System.out.println("contentType: " + response.contentType());
 
-        // '' nasil yazdirilir
+        // 'statusLine' nasil yazdirilir
         System.out.println("statusLine: " + response.statusLine());
 
         // 'Header' nasil yazdirilir
