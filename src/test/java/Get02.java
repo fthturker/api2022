@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertFalse;
 
-public class Get02 {
+public class Get02 extends BaseUrls{
     /*
         Given
             https://restful-booker.herokuapp.com/booking/1001
@@ -29,7 +29,7 @@ public class Get02 {
         String url = "https://restful-booker.herokuapp.com/booking/1005";
 
         // 2. Step: Set the Expected data(POT-PUT-PATCH)
-/*
+
         // 3. Step: Type code to send request
         Response response = given().when().get(url);
         response.prettyPrint();
@@ -47,23 +47,8 @@ public class Get02 {
 
         // assertEquals() metodu parantez icindeki iki deger esit ise testi gecirir
         assertEquals("Cowboy",response.header("Server"));
-*/
-       Response response;
-        try {
-            response=given().when().get(url);
-            response.prettyPrint();
-            // 4. Step :Do Assert
-            response.then().assertThat().statusCode(404).statusLine("HTTP/1.1 404 Not Found");
-            // Respon body de spesifik bir veri nasıl assert edilir
-            // assertTrue methodu parentesin içi tru ise assertTrue olması beklenir
-            // assertFalse ise false doneceğimizi düşündüğümüz için assertFalse kullanılıır
-            assertTrue(response.asString().contains("Not Found"));
-            // response body ın  spessifik bir veri bulunmadığını nasıl test edilir
-            assertFalse(response.asString().contains("TechProEd"));
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
+
+
 
 
     }

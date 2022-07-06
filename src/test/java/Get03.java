@@ -26,7 +26,7 @@ public class Get03 extends BaseUrls {
 
 
     @Test
-    public void get01(){
+    public void get03(){
         //1. Step: Set the Url
         // String url = "https://jsonplaceholder.typicode.com/todos/23"; //Önerilmiyor.
         spec.pathParams("first","todos","second", 23);
@@ -42,7 +42,7 @@ public class Get03 extends BaseUrls {
         //1. Yol
         response.then().assertThat().statusCode(200).
                 contentType("application/json").
-                body("title",equalTo("et itaque necessitatibus maxime molestiae qui quas velitX")).
+                body("title",equalTo("et itaque necessitatibus maxime molestiae qui quas velit")).
                 body("completed", equalTo(false)).
                 body("userId", equalTo(2));
 
