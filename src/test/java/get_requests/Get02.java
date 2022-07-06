@@ -1,3 +1,6 @@
+package get_requests;
+
+import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -6,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertFalse;
 
-public class Get02 extends BaseUrls{
+public class Get02 extends JsonPlaceHolderBaseUrl {
     /*
         Given
             https://restful-booker.herokuapp.com/booking/1001
