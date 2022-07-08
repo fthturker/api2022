@@ -28,8 +28,8 @@ public class Get05 extends JsonPlaceHolderBaseUrl {
 
         //https://restful-booker.herokuapp.com/booking?firstname=Aaron&lastname=Chen
         spec.pathParam("first","booking").
-                queryParams("firstname", "Aaron",
-                        "lastname", "Chen");
+                queryParams("firstname", "GGS",
+                        "lastname", "FINCH");
 
         //2. Step: Set the expected data
 
