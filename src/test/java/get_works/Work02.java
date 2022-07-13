@@ -1,3 +1,5 @@
+package get_works;
+
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

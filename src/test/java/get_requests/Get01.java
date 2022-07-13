@@ -22,7 +22,7 @@ public class Get01 {
 
             c) Test kodunun yazimi
                 i)   Set the URL (url i ilk once kurmamiz lazim)
-                İİ)  set the Expected data (POT-PUT-PATCH) (beklenen data'nin olusturalmasi)
+                İİ)  set the Expected data (POST-PUT-PATCH) (beklenen data'nin olusturalmasi)
                 iii) Type code to send request (talep gondermek icin kod yazacagiz)
                 iv)  Do Assertion (dogrulama yapacagiz bekledigimiz ile gerceklesen datayi)
     */

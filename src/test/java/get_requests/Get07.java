@@ -42,7 +42,7 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         //response.prettyPrint();
 
         //4. Step: Do Assertion
-
+        // 1)Status code is 200
         response.then().assertThat().statusCode(200);
 
         // 2)Print all ids greater than 190 on the console
@@ -59,10 +59,10 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
         List<Integer> ids2 = json.getList("findAll{it.id<5}.userId");
         System.out.println(ids2);
 
-        //  Assert that the number of userIds whose ids are less than 5 is 4
+        //  Assert that the number of userIds whose ids are less than 5 is 4 (5 den kucuk 4 tane oldugunu dogrula)
         assertEquals(4, ids2.size());
 
-        //  4)Print all titles whose ids are less than 5
+        //  4)Print all titles whose ids are less than 5 (id leri 5 den kucuk olanlari)
         List<String> titles = json.getList("findAll{it.id<5}.title");
         System.out.println(titles);
 
