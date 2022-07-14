@@ -1,13 +1,10 @@
 package get_requests;
-
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
-
 public class Get04 extends JsonPlaceHolderBaseUrl {
     /*
         Given
@@ -36,7 +33,11 @@ public class Get04 extends JsonPlaceHolderBaseUrl {
 
         //3. Step: Send the Request and get the Response
 
-        Response response = given().spec(spec).accept(ContentType.JSON).when().get("{first}"); // And de accept type da accept(ContentType.JSON) kullandik
+        Response response = given().
+                spec(spec).
+                accept(ContentType.JSON).
+                when().
+                get("{first}"); // And de accept type da accept(ContentType.JSON) kullandik
         response.prettyPrint();
 
         //4. Step: Do Assertion

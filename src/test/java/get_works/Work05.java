@@ -5,8 +5,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 public class Work05 extends JsonPlaceHolderBaseUrl {
      /*
@@ -32,14 +32,13 @@ public class Work05 extends JsonPlaceHolderBaseUrl {
         //1. Step: Set the Url
         // String url = "https://jsonplaceholder.typicode.com/todos/23"; //Önerilmiyor.
 
+
         //2. Step: Set the expected data
 
         //3. Step: Send the Request and get the Response
 
 
-
         //4. Step: Do Assertion
-
         //1. Yol
 
 

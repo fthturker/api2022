@@ -1,5 +1,6 @@
 package get_works;
 
+import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
@@ -27,9 +28,7 @@ public class Work03 {
 
         // iii) Type code to send request
 
-
         // iv)  Do Assertion
-
 
         // 'Status Code' nasil yazdirilir
 
