@@ -31,15 +31,24 @@ public class Work05 extends JsonPlaceHolderBaseUrl {
     public void get03() {
         //1. Step: Set the Url
         // String url = "https://jsonplaceholder.typicode.com/todos/23"; //Önerilmiyor.
-
+        spec.pathParams("first","todos","second",23);
 
         //2. Step: Set the expected data
 
         //3. Step: Send the Request and get the Response
-
+        Response response=given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
 
         //4. Step: Do Assertion
         //1. Yol
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                contentType("application/json").
+                body("title",equalTo("et itaque necessitatibus maxime molestiae qui quas velit"),
+                "completed",equalTo(false),
+                "userId",equalTo(2));
 
 
         //2. Yol:

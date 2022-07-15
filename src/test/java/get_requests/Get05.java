@@ -39,8 +39,8 @@ public class Get05 extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
 
         //4. Step: Do Assertion
-        response.then().assertThat().statusCode(200);
-        assertTrue(response.asString().contains("bookingid"));
+        response.then().assertThat().statusCode(404);
+        assertFalse(response.asString().contains("bookingid"));
 
 
     }
