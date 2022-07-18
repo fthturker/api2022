@@ -46,7 +46,6 @@ public class get08 extends JsonPlaceHolderBaseUrl {
         Map<String, Object> expectedData = new HashMap<>();
         expectedData.put("userId", 1);
         expectedData.put("title", "quis ut nam facilis et officia qui");
-        expectedData.put("userId", 1);
         expectedData.put("completed", false);
         expectedData.put("StatusCode", 200);
         expectedData.put("Via", "1.1 vegur");
@@ -62,7 +61,7 @@ public class get08 extends JsonPlaceHolderBaseUrl {
         assertEquals(expectedData.get("userId"), actualData.get("userId"));
         assertEquals(expectedData.get("title"), actualData.get("title"));
         assertEquals(expectedData.get("completed"), actualData.get("completed"));
-        assertEquals(expectedData.get("StatusCode"), response.getStatusCode());
+        assertEquals(expectedData.get("StatusCode"), response.getStatusCode()); //
         assertEquals(expectedData.get("Via"), response.getHeader("Via"));
         assertEquals(expectedData.get("Server"), response.getHeader("Server"));
     }
@@ -82,6 +81,7 @@ public class get08 extends JsonPlaceHolderBaseUrl {
         //3. Step: Send the request and get the Response
         Response response = given().spec(spec).when().get("/{first}/{second}");
 
+        // datayi de-serilazition'a cevirecegiz --> response.as(HashMap.class)
         Map<String, Object> actualData = response.as(HashMap.class);
         System.out.println(actualData);
 

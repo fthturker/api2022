@@ -40,19 +40,17 @@ public class Work08 extends HerOkuAppBaseUrl {
 
         //1. Step: Set the Url
 
-        spec.pathParams("first","booking","second",72);
+
 
         //2. Step: Set the expected data
 
         //3. Step: Send the request and get the response
-        Response response=given().spec(spec).when().get("/{first}/{second}");
-        response.prettyPrint();
+
 
         // response.prettyPrint();
 
         //4. Step: Do Assertion
         // 1. YOL
-
 
         // 2. YOL JsonPath Class kullanilir
 
