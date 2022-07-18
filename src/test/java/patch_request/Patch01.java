@@ -38,14 +38,20 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
 
         // 2. Step : Set the Request Body
         JsonPlaceHolderTestData requestBody = new JsonPlaceHolderTestData();
-        Map<String, Object> requestBodyMap = requestBody.expectedDataWithAllKeys(10, "Wash the dishes", false);
+        Map<String, Object> requestBodyMap = requestBody.expectedDataWithMissingKeys(null, "Wash the dishes", null);
 
         // 3. Step : Send the patch Request get the response
         Response response = given().spec(spec).contentType(ContentType.JSON).body(requestBodyMap).when().patch("/{first}/{second}");
         response.prettyPrint();
 
         // 4. Step : Do Assertion
-        Map<String, Object> mapToAssertAllDetails = requestBody.expectedDataWithAllKeys(10, "Wash the dishes", false);
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                body("title",equalTo(requestBodyMap.get("title")));
+
+        Map<String, Object> mapToAssertAllDetails = requestBody.expectedDataWithAllKeys(10, "Wash the dishes", true);
         response.
                 then().
                 assertThat().
