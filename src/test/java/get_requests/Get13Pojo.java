@@ -9,7 +9,7 @@ import pojos.GoRestResponseBodyPojo;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class Get14Pojo extends GorestBaseUrl {
+public class Get13Pojo extends GorestBaseUrl {
     /*
     Given
             https://gorest.co.in/public/v1/users/2508
