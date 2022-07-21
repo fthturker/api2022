@@ -1,9 +1,8 @@
 package get_requests;
 
-import base_urls.DummyRestApi;
+import base_urls.DummyRestApiUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -13,7 +12,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
 
-public class Get16 extends DummyRestApi {
+public class Get16 extends DummyRestApiUrl {
     /*
            URL: https://dummy.restapiexample.com/api/v1/employees
            HTTP Request Method: GET Request
@@ -25,6 +24,26 @@ public class Get16 extends DummyRestApi {
                     v) The name of the lowest age is "Tatyana Fitzpatrick"
                    vi) Total salary of all employees is 6,644,770
     */
+    /*
+    Given
+        https://dummy.restapiexample.com/api/v1/employees
+    When
+        User send GET Request to Url
+    Then
+        Status code is 200
+    And
+        There are 24 employees
+    And
+        "Tiger Nixon" and "Garrett Winters" are among the employees
+    And
+        The greatest age is 66
+    And
+        The name of the lowest age is "Tatyana Fitzpatrick"
+    And
+        Total salary of all employees is 6,644,770
+
+
+     */
     @Test
     public void get01() {
         // 1. Step : set the Url
@@ -40,11 +59,11 @@ public class Get16 extends DummyRestApi {
         response.
                 then().
                 assertThat().statusCode(200). // Status code is 200
-                body("data.id",hasSize(24), // There are 24 employees
-                "data.employee_name",hasItems("Tiger Nixon", "Garrett Winters")); //"Tiger Nixon" and "Garrett Winters" are among the employees
+                body("data.id", hasSize(24), // There are 24 employees
+                "data.employee_name", hasItems("Tiger Nixon", "Garrett Winters")); //"Tiger Nixon" and "Garrett Winters" are among the employees
 
-        JsonPath json=response.jsonPath();
-        List<Integer> ageList=json.getList("data.findAll{it.id>0}.employee_age");
+        JsonPath json = response.jsonPath();
+        List<Integer> ageList = json.getList("data.findAll{it.id>0}.employee_age");
         System.out.println(ageList);
 
         Collections.sort(ageList);

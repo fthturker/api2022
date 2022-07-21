@@ -46,19 +46,19 @@ public class Get11 extends GorestBaseUrl {
         response.prettyPrint();
 
         //4. Step: Do Assertion
-
         response.
                 then().
                 assertThat().
                 statusCode(200).
-                body("meta.pagination.limit", equalTo(10),
-                        "meta.pagination.links.current", equalTo("https://gorest.co.in/public/v1/users?page=1"),
-                        "data.id", hasSize(10),
-                        "data.status", hasItem("active"),
-                        "data.name", hasItems("Aalok Acharya DDS", "Acharyasuta Chattopadhyay DC", "Shresth Nehru"));
+                body("meta.pagination.limit", equalTo(10), // The value of "pagination limit" is 10 (meta.pagination.limit)
+                        "meta.pagination.links.current", equalTo("https://gorest.co.in/public/v1/users?page=1"), //The "current link" should be "https://gorest.co.in/public/v1/users?page=1"
+                        "data.id", hasSize(10),// The number of users should  be 10
+                        "data.status", hasItem("active"), // We have at least one "active" status
+                        "data.name", hasItems("Aalok Acharya DDS", "Acharyasuta Chattopadhyay DC", "Shresth Nehru")); //"Indra Ganaka", "Sarada Mehrotra", "Jagathi Chopra" are among the users
 
         // bayan ve erkek sayisini karsılastıralim
         // 1. Yol: tum cinsiyetleri cekip bayan sayisi ile karsilastiralim
+        //  The female users are more than male users
         JsonPath json = response.jsonPath();
         List<String> genders = json.getList("data.gender");
         System.out.println(genders);

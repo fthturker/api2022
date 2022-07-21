@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class Get10 extends GorestBaseUrl {
    /*
         Given
-            https://gorest.co.in/public/v1/users/2986
+            https://gorest.co.in/public/v1/users/2965
         When
             User send GET Request to the URL
         Then
@@ -23,16 +23,15 @@ public class Get10 extends GorestBaseUrl {
         And
             Response body should be like
                 {
-                 https://gorest.co.in/public/v1/users/2965
-        "meta": null,
-        "data": {
-        "id": 2965,
-        "name": "Mr. Gita Menon",
-        "email": "gita_menon_mr@bayer.com",
-        "gender": "female",
-        "status": "inactive"
-                            }
-                }
+                "meta": null,
+                "data": {
+                    "id": 2965,
+                    "name": "Mr. Gita Menon",
+                    "email": "gita_menon_mr@bayer.com",
+                    "gender": "female",
+                    "status": "inactive"
+                          }
+                  }
      */
 
     @Test

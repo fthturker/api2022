@@ -36,6 +36,7 @@ public class get09 extends HerOkuAppBaseUrl {
         spec.pathParams("first", "booking", "second", 91);
 
         //2. Step: Set the expected Data
+        // 2 tane map yapacagiz once icteki map sonra distaki map
         Map<String, String> bookingdatesMap = new HashMap<>();
         bookingdatesMap.put("checkin", "2018-01-01");
         bookingdatesMap.put("checkout", "2019-01-01");
@@ -53,15 +54,17 @@ public class get09 extends HerOkuAppBaseUrl {
         //3. Step: Set the request and get the response
 
         Response response = given().spec(spec).when().get("/{first}/{second}");
+        // De-serilazition yapacagiz Json formatindaki datayi java  ya cevirecegiz
         Map<String, Object> actualDataMap = response.as(HashMap.class);
         System.out.println(actualDataMap);
 
         //4. Step: Do Assertion
 
-        assertEquals(actualDataMap.get("firstname"),actualDataMap.get("firstname"));
-        assertEquals(actualDataMap.get("lastname"),actualDataMap.get("lastname"));
-        assertEquals(actualDataMap.get("depositpaid"),actualDataMap.get("depositpaid"));
-        assertEquals(actualDataMap.get("totalprice"),actualDataMap.get("totalprice"));
+        assertEquals(expectedDataMap.get("firstname"),actualDataMap.get("firstname"));
+        assertEquals(expectedDataMap.get("lastname"),actualDataMap.get("lastname"));
+        assertEquals(expectedDataMap.get("depositpaid"),actualDataMap.get("depositpaid"));
+        assertEquals(expectedDataMap.get("totalprice"),actualDataMap.get("totalprice"));
+        assertEquals(expectedDataMap.get("additionalneeds"),actualDataMap.get("additionalneeds"));
 
         assertEquals(bookingdatesMap.get("checkin"),((Map)actualDataMap.get("bookingdates")).get("checkin"));
         assertEquals(bookingdatesMap.get("checkout"),((Map)actualDataMap.get("bookingdates")).get("checkout"));
