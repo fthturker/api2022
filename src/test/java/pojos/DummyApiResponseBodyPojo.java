@@ -1,6 +1,6 @@
 package pojos;
 
-public class ResponseBodyPojo {
+public class DummyApiResponseBodyPojo {
 
     private String status;
     private DummyApiDataPojo data;
@@ -10,7 +10,7 @@ public class ResponseBodyPojo {
      * No args constructor for use in serialization
      *
      */
-    public ResponseBodyPojo() {
+    public DummyApiResponseBodyPojo() {
     }
 
     /**
@@ -19,7 +19,7 @@ public class ResponseBodyPojo {
      * @param message
      * @param status
      */
-    public ResponseBodyPojo(String status, DummyApiDataPojo data, String message) {
+    public DummyApiResponseBodyPojo(String status, DummyApiDataPojo data, String message) {
         super();
         this.status = status;
         this.data = data;
