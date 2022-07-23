@@ -12,6 +12,7 @@ public class Delete02 {
  */
     /*
     Given
+
         URL: https://dummy.restapiexample.com/api/v1/delete/2
     When
 
